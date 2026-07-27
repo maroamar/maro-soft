@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maro Soft | مركز التطبيقات والأسكربتات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --card-border: #30363d;
+            --text-main: #c9d1d9;
+            --text-heading: #ffffff;
+            --accent-blue: #58a6ff;
+            --accent-green: #238636;
+            --accent-purple: #bc8cff;
+            --accent-orange: #f0883e;
+            --tag-bg: rgba(56, 139, 253, 0.15);
+            --font-family: 'Cairo', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(22,27,34,0.8) 0%, rgba(13,17,23,1) 100%);
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 40px;
+            border-radius: 12px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1f6feb, #2ea043);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 15px;
+            box-shadow: 0 0 20px rgba(31, 111, 235, 0.4);
+        }
+
+        header h1 {
+            color: var(--text-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #8b949e;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Category Title */
+        .category-title {
+            color: var(--text-heading);
+            font-size: 1.4rem;
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-right: 4px solid var(--accent-blue);
+            padding-right: 12px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Card Component */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #58a6ff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            color: var(--text-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .badge-ps { background: rgba(188, 140, 255, 0.15); color: var(--accent-purple); border: 1px solid rgba(188, 140, 255, 0.3); }
+        .badge-exe { background: rgba(46, 160, 67, 0.15); color: #3fb950; border: 1px solid rgba(46, 160, 67, 0.3); }
+        .badge-sys { background: rgba(240, 136, 62, 0.15); color: var(--accent-orange); border: 1px solid rgba(240, 136, 62, 0.3); }
+
+        .card-desc {
+            color: #8b949e;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        /* Buttons */
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: var(--font-family);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+
+        .btn-secondary {
+            background-color: #21262d;
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-secondary:hover {
+            background-color: #30363d;
+            color: var(--text-heading);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--card-border);
+            color: #8b949e;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.75rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="profile-avatar">M</div>
+            <h1>Maro Soft Tools</h1>
+            <p>المستودع الشخصي للأسكربتات والأدوات الذكية، تحسين أداء الأنظمة، وأتمتة PowerShell.</p>
+        </header>
+
+        <!-- Category 1: Audio & Media Processing -->
+        <div class="category-title">
+            <span>🎙️</span> معالجة الصوتيات وتطبيقات الويب
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-title">amar-smart-tool</div>
+                        <span class="badge badge-exe">EXE / GUI</span>
+                    </div>
+                    <div class="card-desc">
+                        أداة ذكية مخصصة لمعالجة وتحسين جودة التسجيلات الصوتية والتفريغ الصوتي مع واجهة سهلة وإعدادات متقدمة.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">PowerShell</span>
+                        <span class="tag">Audio Processing</span>
+                        <span class="tag">PS2EXE</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-primary">تحميل الأداة</a>
+                    <a href="#" class="btn btn-secondary">الكود المصدر</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Hardware & System Monitoring -->
+        <div class="category-title">
+            <span>📊</span> مراقبة العتاد والأداء
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-title">Hardware Monitor</div>
+                        <span class="badge badge-ps">PowerShell</span>
+                    </div>
+                    <div class="card-desc">
+                        مراقب موارد النظام بالزمن الفعلي (Real-time). يعرض درجات الحرارة، استهلاك المعالج، الذاكرة، والضغط ثانية بثانية مع حفظ السجلات.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">LibreHardwareMonitor</span>
+                        <span class="tag">Real-Time Metrics</span>
+                        <span class="tag">CLI</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-primary">تحميل الأسكربت</a>
+                    <a href="#" class="btn btn-secondary">استعراض</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: Windows Optimization & Scripts -->
+        <div class="category-title">
+            <span>⚙️</span> أدوات صيانة وتحسين Windows
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-title">Windows Maintenance Script</div>
+                        <span class="badge badge-sys">Batch / PS</span>
+                    </div>
+                    <div class="card-desc">
+                        أسكربت شامل لتنظيف الملفات المؤقتة، إصلاح سجلات التشغيل (Logs)، وتخفيف الضغط على الذاكرة للتطبيقات والألعاب القديمة.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">Windows 11</span>
+                        <span class="tag">Optimization</span>
+                        <span class="tag">Registry</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-primary">تحميل الأسكربت</a>
+                    <a href="#" class="btn btn-secondary">استعراض</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-title">Android Log & Debug Tool</div>
+                        <span class="badge badge-ps">ADB / Shell</span>
+                    </div>
+                    <div class="card-desc">
+                        أداة لتشخيص وتحليل سجلات النظام والتطبيقات المجمدة على هواتف Android عبر أوامر ADB المباشرة.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">ADB</span>
+                        <span class="tag">Android Debug</span>
+                        <span class="tag">MIUI Fixes</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-primary">تحميل الأسكربت</a>
+                    <a href="#" class="btn btn-secondary">استعراض</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Maro Soft — جميع الحقوق محفوظة | مستضاف على Vercel عبر GitHub</p>
+        </footer>
+    </div>
+
+</body>
+</html>
