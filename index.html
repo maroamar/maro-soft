@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maro Soft - الأدوات والبرامج الذكية المجانية</title>
 
-    <!-- أيقونة الموقع وبطاقات المعاينة -->
+    <!-- أيقونة المتصفح ومعاينة الشبكات -->
     <link rel="icon" type="image/png" href="logo.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://amar-soft.vercel.app/">
@@ -32,76 +32,77 @@
             padding: 0;
         }
 
-        /* Navbar Header Logo */
-        .navbar {
-            background-color: #0f172a;
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .navbar img {
-            height: 75px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* Hero */
+        /* Unified Header & Hero Section */
         .hero {
             text-align: center;
             padding: 40px 20px 20px;
         }
 
+        .main-logo {
+            height: 90px;
+            width: auto;
+            margin-bottom: 15px;
+            object-fit: contain;
+            filter: drop-shadow(0px 4px 12px rgba(0, 188, 212, 0.2));
+        }
+
         .hero h1 {
             color: var(--accent-color);
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin: 0 0 8px 0;
+            letter-spacing: 0.5px;
         }
 
         .hero p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin: 0;
         }
 
-        /* Grid Layout */
+        /* Symmetric 2x2 Grid Layout */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
+            grid-template-columns: repeat(2, 1fr); /* عمودين متساويين في السطر */
+            gap: 25px;
+            max-width: 900px; /* مقاس متناسق جداً للأربع أدوات */
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 30px 20px 50px;
+        }
+
+        /* Responsive Fix for Mobile Phones */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* سطر واحد على الموبايل */
+            }
         }
 
         /* Cards Styling */
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: var(--accent-color);
+            box-shadow: 0px 8px 20px rgba(0, 188, 212, 0.15);
         }
 
         .card-preview-img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
             background-color: #0d121d;
             border-bottom: 1px solid var(--border-color);
         }
 
         .card-body {
-            padding: 20px;
+            padding: 22px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -109,7 +110,7 @@
         }
 
         .card-title {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--text-color);
             margin: 0 0 10px 0;
@@ -117,25 +118,25 @@
 
         .card-description {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             flex-grow: 1;
         }
 
         .card-actions {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn {
             flex: 1;
             text-align: center;
-            padding: 9px 12px;
+            padding: 10px 14px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             transition: background 0.2s ease;
         }
 
@@ -160,20 +161,16 @@
 </head>
 <body>
 
-    <!-- Header Section with Logo -->
-    <header class="navbar">
-        <a href="/">
-            <img src="logo.png" alt="Maro Soft Logo">
-        </a>
-    </header>
-
-    <!-- Hero Section -->
+    <!-- Hero Section with Centered Logo -->
     <section class="hero">
+        <a href="/">
+            <img src="logo.png" alt="Maro Soft Logo" class="main-logo">
+        </a>
         <h1>Maro Soft</h1>
         <p>الموقع الرسمي لاستعراض وتحميل البرامج والأدوات الذكية المجانية</p>
     </section>
 
-    <!-- Projects Grid -->
+    <!-- Symmetric Projects Grid (2x2) -->
     <main class="grid-container">
 
         <!-- Card 1: Amar Storage Sentinel -->
