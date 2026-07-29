@@ -3,191 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maro Soft - الأدوات والبرامج المجانية</title>
+    <title>Maro Soft - الموقع الرسمي للأدوات والبرامج المجانية</title>
+
+    <!-- 1. أيقونة التبويب (Favicon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- 2. بطاقة المعاينة العامة للموقع (SEO & Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://amar-soft.vercel.app/">
+    <meta property="og:title" content="Maro Soft - الأدوات والبرامج الذكية">
+    <meta property="og:description" content="الموقع الرسمي لاستعراض وتحميل البرامج المتقدمة وأدوات تحسين الأنظمة المجانية.">
+    <meta property="og:image" content="https://amar-soft.vercel.app/social-preview.png">
+
+    <!-- 3. التنسيقات (CSS) -->
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
+            --bg-color: #0b0f19;
+            --card-bg: #151c2c;
+            --accent-color: #00bcd4;
+            --accent-hover: #008ba3;
+            --text-color: #ffffff;
             --text-muted: #94a3b8;
-            --primary: #06b6d4;
-            --primary-hover: #0891b2;
-            --secondary: #334155;
-            --secondary-hover: #475569;
-            --border: #334155;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --border-color: #2a354d;
         }
 
         body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            margin: 0;
+            padding: 0;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
+        /* Header Navigation */
+        .navbar {
+            background-color: #0f172a;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        header {
+        .navbar .logo-container img {
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
-            margin-bottom: 3rem;
+            padding: 50px 20px 30px;
         }
 
-        header h1 {
+        .hero h1 {
+            color: var(--accent-color);
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
 
-        header p {
+        .hero p {
             color: var(--text-muted);
             font-size: 1.1rem;
         }
 
-        .grid {
+        /* Projects Grid Container */
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
+        /* Tool Card Base */
         .card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 1.5rem;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
         }
 
-        .card-header h3 {
+        /* Social Preview Banner Inside Cards */
+        .card-preview-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
             font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            font-weight: bold;
             color: var(--text-color);
+            margin: 0 0 10px 0;
         }
 
-        .card-body p {
+        .card-description {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .card-actions {
             display: flex;
-            gap: 0.75rem;
+            gap: 10px;
         }
 
         .btn {
             flex: 1;
             text-align: center;
-            padding: 0.6rem 1rem;
+            padding: 10px 15px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
             font-size: 0.9rem;
-            transition: background-color 0.2s;
+            transition: background 0.2s ease;
         }
 
         .btn-primary {
-            background-color: var(--primary);
-            color: #000;
+            background-color: var(--accent-color);
+            color: #000000;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-hover);
+            background-color: var(--accent-hover);
         }
 
         .btn-secondary {
-            background-color: var(--secondary);
+            background-color: #2a354d;
             color: var(--text-color);
         }
 
         .btn-secondary:hover {
-            background-color: var(--secondary-hover);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
+            background-color: #3b4968;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Maro Soft</h1>
-            <p>الموقع الرسمي لاستعراض وتحميل البرامج والأدوات الذكية المجانية</p>
-        </header>
+    <!-- Header Section -->
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- Header Logo (logo.png) -->
+            <a href="/">
+                <img src="logo.png" alt="Maro Soft Logo">
+            </a>
+        </div>
+    </header>
 
-        <main class="grid">
-            
-            <!-- 1. أداة Amar_ai Prime -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>Amar_ai Prime</h3>
-                </div>
-                <div class="card-body">
-                    <p>حزمة برمجية متكاملة بآلية أتمتة متتقدمة لضغط وتقليل حجم الفيديو (MP4, MKV, MOV)، تحسين ومعالجة التسجيلات الصوتية، وضغط المستندات والصور.</p>
-                </div>
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <h1>Maro Soft</h1>
+        <p>الموقع الرسمي لاستعراض وتحميل البرامج والأدوات الذكية المجانية</p>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <main class="grid-container">
+
+        <!-- 🛡️ Card 1: Amar Storage Sentinel (NEW) -->
+        <article class="card">
+            <!-- Social Preview Image for Storage Sentinel -->
+            <img src="sentinel-preview.png" alt="Amar Storage Sentinel Preview" class="card-preview-img" onerror="this.style.display='none'">
+            <div class="card-body">
+                <h2 class="card-title">Amar Storage Sentinel</h2>
+                <p class="card-description">
+                    أداة هندسية خفيفة لمسح وتنظيف الأقراص الصلبة والألعاب دون تجميد النظام، مدعومة بمحرك خلفي آمن لتقليل إجهاد الـ HDD و SSD.
+                </p>
                 <div class="card-actions">
-                    <a href="https://github.com/maroamar/Amar_ai-Prime---Smart-Media-Suite-v5.9/releases/latest/download/amar-smart-tool.zip" class="btn btn-primary">تحميل الأداة</a>
+                    <a href="https://github.com/maroamar/Amar-Storage-Sentinel/releases" class="btn btn-primary" target="_blank">تحميل الأداة</a>
+                    <a href="https://github.com/maroamar/Amar-Storage-Sentinel" class="btn btn-secondary" target="_blank">صفحة المشروع</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- 🚀 Card 2: Amar_ai Prime -->
+        <article class="card">
+            <img src="prime-preview.png" alt="Amar_ai Prime Preview" class="card-preview-img" onerror="this.style.display='none'">
+            <div class="card-body">
+                <h2 class="card-title">Amar_ai Prime</h2>
+                <p class="card-description">
+                    حزمة برمجية متكاملة بآلية أتمتة متقدمة لضغط وتقليل حجم الفيديو، تحسين التسجيلات الصوتية، وضغط المستندات والصور.
+                </p>
+                <div class="card-actions">
+                    <a href="#" class="btn btn-primary">تحميل الأداة</a>
                     <a href="https://github.com/maroamar/Amar_ai-Prime---Smart-Media-Suite-v5.9" class="btn btn-secondary" target="_blank">صفحة المشروع</a>
                 </div>
             </div>
+        </article>
 
-            <!-- 2. أداة Brave Optimizer -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>Brave Optimizer</h3>
-                </div>
-                <div class="card-body">
-                    <p>أداة هندسية متقدمة لتنظيف وتأمين متصفح Brave على مستوى النظام (System-Level) عبر سياسات Registry لإيقاف التتبع وتوفير موارد الجهاز.</p>
-                </div>
+        <!-- 🛡️ Card 3: Brave Optimizer -->
+        <article class="card">
+            <img src="brave-preview.png" alt="Brave Optimizer Preview" class="card-preview-img" onerror="this.style.display='none'">
+            <div class="card-body">
+                <h2 class="card-title">Brave Optimizer</h2>
+                <p class="card-description">
+                    أداة هندسية متقدمة لتنظيف وتأمين متصفح Brave على مستوى النظام (System-Level) عبر سياسات Registry لإيقاف التتبع وتوفير الموارد.
+                </p>
                 <div class="card-actions">
-                    <a href="https://github.com/maroamar/brave-optimizer/releases/latest/download/brave-optimizer.zip" class="btn btn-primary">تحميل الأداة</a>
+                    <a href="#" class="btn btn-primary">تحميل الأداة</a>
                     <a href="https://github.com/maroamar/brave-optimizer" class="btn btn-secondary" target="_blank">صفحة المشروع</a>
                 </div>
             </div>
+        </article>
 
-            <!-- 3. أداة Check HDD & SSD Status -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>Check HDD & SSD Status</h3>
-                </div>
-                <div class="card-body">
-                    <p>أداة تشخيص فوري لقراءة بيانات S.M.A.R.T. وحساب ساعات العمل الفعلية وفحص الصحة والتنبؤ بأعطال الأقراص الصلبة (HDD/SSD).</p>
-                </div>
+        <!-- 🔍 Card 4: Check HDD & SSD Status -->
+        <article class="card">
+            <img src="hdd-preview.png" alt="HDD SSD Status Preview" class="card-preview-img" onerror="this.style.display='none'">
+            <div class="card-body">
+                <h2 class="card-title">Check HDD & SSD Status</h2>
+                <p class="card-description">
+                    أداة تشخيص فوري لقراءة بيانات S.M.A.R.T وحساب ساعات العمل الفعلية وفحص الصحة والتنبؤ بأعطال الأقراص الصلبة.
+                </p>
                 <div class="card-actions">
-                    <a href="https://github.com/maroamar/check-hdd-ssd-status/releases/latest/download/check-hdd-ssd-status.zip" class="btn btn-primary">تحميل الأداة</a>
+                    <a href="#" class="btn btn-primary">تحميل الأداة</a>
                     <a href="https://github.com/maroamar/check-hdd-ssd-status" class="btn btn-secondary" target="_blank">صفحة المشروع</a>
                 </div>
             </div>
+        </article>
 
-        </main>
-
-        <footer>
-            <p>جميع الحقوق محفوظة © 2026 - Amar-Soft Tech</p>
-        </footer>
-    </div>
+    </main>
 
 </body>
 </html>
